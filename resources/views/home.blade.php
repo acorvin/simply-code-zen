@@ -7,6 +7,8 @@
             <x-post-item :post="$post"></x-post-item>
         @endforeach
 
+        {{ $posts->links() }}
+
         <!-- Pagination -->
         <div class="flex items-center py-8">
             <a href="#" class="h-10 w-10 bg-slate-600 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center">1</a>

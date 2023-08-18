@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Blog Template</title>
+    <title>Simply Code Zen</title>
     <meta name="description" content="">
 
     <!-- Tailwind -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
@@ -24,13 +24,13 @@
 <body class="bg-white font-family-karla">
 
 <!-- Top Bar Nav -->
-<nav class="w-full py-4 bg-blue-800 shadow">
+<nav class="w-full py-4 bg-lime-800 shadow">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
 
         <nav>
             <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-                <li><a class="hover:text-gray-200 hover:underline px-4" href="#">Shop</a></li>
-                <li><a class="hover:text-gray-200 hover:underline px-4" href="#">About</a></li>
+                <li><a class="hover:text-gray-200 hover:underline px-4" href="#">Get Merch</a></li>
+                <li><a class="hover:text-gray-200 hover:underline px-4" href="#">About Us</a></li>
             </ul>
         </nav>
 
@@ -77,12 +77,12 @@
     </div>
     <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
         <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Technology</a>
-            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Automotive</a>
-            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Finance</a>
-            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Politics</a>
-            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Culture</a>
-            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Sports</a>
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Tech News</a>
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Coding</a>
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Challenges</a>
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Events</a>
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Resources</a>
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Write For Us</a>
         </div>
     </div>
 </nav>
@@ -97,8 +97,8 @@
 
         <div class="w-full bg-white shadow flex flex-col my-4 p-6">
             <p class="text-xl font-semibold pb-5">About Us</p>
-            <p class="pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio sagittis tristique. Vestibulum ut finibus leo. In hac habitasse platea dictumst.</p>
-            <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
+            <p class="pb-2">Our mission is to provide coders of all levels with a serene haven where they can explore programming resources, learn healthy and sustainable approaches to coding, and embrace a mindful journey towards technical excellence.</p>
+            <a href="#" class="w-full bg-slate-800 text-white font-bold text-sm uppercase rounded hover:bg-slate-700 flex items-center justify-center px-2 py-3 mt-4">
                 Get to know us
             </a>
         </div>
@@ -116,8 +116,8 @@
                 <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=8">
                 <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=9">
             </div>
-            <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
-                <i class="fab fa-instagram mr-2"></i> Follow @dgrzyb
+            <a href="#" class="w-full bg-slate-800 text-white font-bold text-sm uppercase rounded hover:bg-slate-700 flex items-center justify-center px-2 py-3 mt-6">
+                <i class="fab fa-instagram mr-2"></i> Follow @simplycodezen
             </a>
         </div>
 
@@ -139,7 +139,7 @@
             <img class="w-1/6 hover:opacity-75" :src="image">
         </template>
         <button
-            class="absolute right-0 bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12"
+            class="absolute right-0 bg-slate-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12"
             x-on:click="increment()">
             &#8594;
         </button>
@@ -151,7 +151,7 @@
             <a href="#" class="uppercase px-3">Terms & Conditions</a>
             <a href="#" class="uppercase px-3">Contact Us</a>
         </div>
-        <div class="uppercase pb-6">&copy; myblog.com</div>
+        <div class="uppercase pb-6">&copy; simplycodezen.com</div>
     </div>
 </footer>
 

@@ -56,10 +56,10 @@
 <header class="w-full container mx-auto">
     <div class="flex flex-col items-center py-12">
         <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" href="#">
-            Simply Code Zen
+            {{ \App\Models\TextWidget::getTitle('header') }}
         </a>
         <p class="text-lg text-gray-600">
-            Crafting Code, Cultivating Balance
+            {{ \App\Models\TextWidget::getTitle('tagline') }}
         </p>
     </div>
 </header>
@@ -91,37 +91,6 @@
 <div class="container mx-auto flex flex-wrap py-6">
 
     {{ $slot }}
-
-    <!-- Sidebar Section -->
-    <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
-
-        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-            <p class="text-xl font-semibold pb-5">About Us</p>
-            <p class="pb-2">Our mission is to provide coders of all levels with a serene haven where they can explore programming resources, learn healthy and sustainable approaches to coding, and embrace a mindful journey towards technical excellence.</p>
-            <a href="#" class="w-full bg-slate-800 text-white font-bold text-sm uppercase rounded hover:bg-slate-700 flex items-center justify-center px-2 py-3 mt-4">
-                Get to know us
-            </a>
-        </div>
-
-        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-            <p class="text-xl font-semibold pb-5">Instagram</p>
-            <div class="grid grid-cols-3 gap-3">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=1">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=2">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=3">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=4">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=5">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=6">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=7">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=8">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=9">
-            </div>
-            <a href="#" class="w-full bg-slate-800 text-white font-bold text-sm uppercase rounded hover:bg-slate-700 flex items-center justify-center px-2 py-3 mt-6">
-                <i class="fab fa-instagram mr-2"></i> Follow @simplycodezen
-            </a>
-        </div>
-
-    </aside>
 
 </div>
 

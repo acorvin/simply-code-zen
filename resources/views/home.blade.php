@@ -7,11 +7,14 @@
             <x-post-item :post="$post"></x-post-item>
         @endforeach
 
-        {{ $posts->links() }}
+        {{ $posts->onEachSide(1)->links() }}
 
         <!-- Pagination -->
         <div class="flex items-center py-8"></div>
 
     </section>
+
+    <!-- Sidebar Section -->
+    <x-sidebar />
 
 </x-app-layout>

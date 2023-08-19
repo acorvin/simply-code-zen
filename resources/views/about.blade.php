@@ -1,4 +1,6 @@
-<x-app-layout>
+<x-app-layout
+    meta-title="Simply Code Zen - About Us"
+    meta-description="Who we are and what we do.">
     <section class="w-full flex flex-col items-center px-3">
 
         <article class="flex flex-col shadow my-4">

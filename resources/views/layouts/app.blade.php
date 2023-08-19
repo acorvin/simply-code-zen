@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simply Code Zen</title>
-    <meta name="description" content="">
+    <title>{{ $metaTitle ?: 'Simply Code Zen' }}</title>
+    <meta name="description" content="{{ $metaDescription }}">
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -81,7 +81,7 @@
             <a href="{{ route('by-category', $category) }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 {{ request('category')?->slug === $category->slug ? 'bg-slate-500 text-white' : '' }}">{{$category->title}}</a>
             @endforeach
 
-            <a href="/about" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">About Us</a>
+            <a href="{{ route('about-us') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">About Us</a>
 
         </div>
     </div>

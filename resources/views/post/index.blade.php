@@ -1,4 +1,4 @@
-<x-app-layout meta-description="A blog for every coder looking for sustainable learning.">
+<x-app-layout :meta-title="'Simply Code Zen - Posts by category ' . $category->title" meta-description="Posts by subject category">
 
     <!-- Posts Section -->
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">

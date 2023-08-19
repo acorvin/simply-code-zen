@@ -1,25 +1,25 @@
 <article class="flex flex-col shadow my-4">
     <!-- Article Image -->
-    <ar href="#" class="hover:opacity-75">
+    <ar href="{{ route('view', $post) }}" class="hover:opacity-75">
         <img src="/storage/{{ $post->thumbnail }}" alt="blog post">
 
     <div class="bg-white flex flex-col justify-start p-6">
 
         @foreach($post->categories as $category)
-            <a href="#" class="text-yellow-600 text-sm font-bold uppercase pb-4">
+            <a href="{{ route('view', $post) }}" class="text-yellow-600 text-sm font-bold uppercase pb-4">
                 {{ $category->title }}
             </a>
         @endforeach
 
-        <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">
+        <a href="{{ route('view', $post) }}" class="text-3xl font-bold hover:text-gray-700 pb-4">
             {{ $post->title }}
         </a>
-        <p href="#" class="text-sm pb-3">
+        <p class="text-sm pb-3">
             By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user->name }}</a>, Published on {{ $post->getFormattedDate() }}
         </p>
-        <a href="#" class="pb-6">
+        <a href="{{ route('view', $post) }}" class="pb-6">
             {{ $post->shortBody() }}
         </a>
-        <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+        <a href="{{ route('view', $post) }}" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
     </div>
 </article>

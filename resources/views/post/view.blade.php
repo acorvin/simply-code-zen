@@ -9,10 +9,13 @@
                 <a href="{{ route('view', $post) }}" class="hover:opacity-75">
                     <img src="/storage/{{ $post->thumbnail }}">
                 </a>
+
                 <div class="bg-white flex flex-col justify-start p-6">
-                    @foreach($post->categories as $category)
-                    <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{ $category->title }}</a>
-                    @endforeach
+                    <div class="flex gap-4">
+                        @foreach($post->categories as $category)
+                        <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{ $category->title }}</a>
+                        @endforeach
+                    </div>
 
                     <h1 class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $post->title }}</h1>
 

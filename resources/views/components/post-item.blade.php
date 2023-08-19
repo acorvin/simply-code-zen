@@ -4,12 +4,13 @@
         <img src="/storage/{{ $post->thumbnail }}" alt="blog post">
 
     <div class="bg-white flex flex-col justify-start p-6">
-
-        @foreach($post->categories as $category)
-            <a href="{{ route('view', $post) }}" class="text-yellow-600 text-sm font-bold uppercase pb-4">
-                {{ $category->title }}
-            </a>
-        @endforeach
+        <div class="flex gap-4">
+            @foreach($post->categories as $category)
+                <a href="{{ route('view', $post) }}" class="text-yellow-600 text-sm font-bold uppercase pb-4">
+                    {{ $category->title }}
+                </a>
+            @endforeach
+        </div>
 
         <a href="{{ route('view', $post) }}" class="text-3xl font-bold hover:text-gray-700 pb-4">
             {{ $post->title }}

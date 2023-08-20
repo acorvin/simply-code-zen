@@ -6,8 +6,6 @@
     <title>{{ $metaTitle ?: 'Simply Code Zen' }}</title>
     <meta name="description" content="{{ $metaDescription }}">
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
@@ -16,10 +14,10 @@
         }
     </style>
 
-    <!-- AlpineJS -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <!-- Vite -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-white font-family-karla">
 
@@ -29,8 +27,13 @@
 
         <nav>
             <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-                <li><a class="hover:text-gray-200 hover:underline px-4" href="#">Get Merch</a></li>
-                <li><a class="hover:text-gray-200 hover:underline px-4" href="#">Join In</a></li>
+                @auth
+                <li><a href="#" class="hover:text-gray-200 hover:underline px-4">Profile</a></li>
+                <li><a href="#" class="hover:text-gray-200 hover:underline px-4">Logout</a></li>
+                @else
+                <li><a href="{{ route('register') }}" class="hover:text-gray-200 hover:underline px-4">Sign Up!</a></li>
+                <li><a href="{{ route('login') }}" class="hover:text-gray-200 hover:underline px-4">Login</a></li>
+                @endauth
             </ul>
         </nav>
 

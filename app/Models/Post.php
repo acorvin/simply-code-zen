@@ -29,15 +29,25 @@ class Post extends Model
         return $this->belongsToMany(Category::class);
     }
 
+    public function shortBody($words = 30): string
+    {
+        return Str::words(strip_tags($this->body), $words);
+    }
+
     public function getFormattedDate()
     {
         return $this->published_at->format('F jS Y');
     }
 
-    public function shortBody(): string
+    public function getThumbnail()
     {
-        return Str::words(strip_tags($this->body), 30);
+        if (str_starts_with($this->thumbnail, 'http')) {
+            return $this->thumbnail;
+        }
+
+        return '/storage/' . $this->thumbnail;
     }
+
 
     public function readTime(): Attribute
     {

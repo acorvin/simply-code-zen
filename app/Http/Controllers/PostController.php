@@ -16,15 +16,45 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function home(): View
     {
-        $posts = Post::query()
-            ->where('active', '=', 1)
-            ->whereDate('published_at', '<', Carbon::now())
-            ->orderBy('published_at', 'desc')
-            ->paginate(5);
 
-        return view('home', compact('posts'));
+        // Latest posts
+        $latestPosts = Post::where('active', '=', 1)
+            ->where('published_at', '<', Carbon::now())
+            ->orderBy('published_at', 'desc')
+            ->limit(1)
+            ->first();
+
+        // Most popular posts based on upvotes
+        $popularPosts = Post::query('active', '=', 1)
+            ->leftJoin('upvote_downvotes', 'post_id', '=', 'upvote_downvotes.post_id')
+            ->select('posts.*', DB::raw('COUNT(upvote_downvotes.id) as upvote_count'))
+            ->where(function($query) {
+                $query->whereNull('upvote_downvotes.is_upvote')
+                    ->orWhere('upvote_downvotes.is_upvote', '=', 1);
+            })->where('active', '=', 1)
+            ->where('published_at', '<', Carbon::now())
+            ->orderByDesc('upvote_count')
+            ->groupBy('posts.id')
+            ->limit(3)
+            ->get();
+
+
+        // Recommended posts
+
+        // Popular posts based on views
+
+        // Recent categories with latest posts
+
+
+//        $posts = Post::query()
+//            ->where('active', '=', 1)
+//            ->whereDate('published_at', '<', Carbon::now())
+//            ->orderBy('published_at', 'desc')
+//            ->paginate(5);
+
+        return view('home', compact('latestPosts', 'popularPosts'));
     }
 
     /**

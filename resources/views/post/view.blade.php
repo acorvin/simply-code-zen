@@ -13,7 +13,7 @@
                 <div class="bg-white flex flex-col justify-start p-6">
                     <div class="flex gap-4">
                         @foreach($post->categories as $category)
-                        <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{ $category->title }}</a>
+                        <a href="#" class="text-yellow-600 text-sm font-bold uppercase pb-4">{{ $category->title }}</a>
                         @endforeach
                     </div>
 

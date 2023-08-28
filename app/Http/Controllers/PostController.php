@@ -28,15 +28,29 @@ class PostController extends Controller
 
         // Most popular posts based on upvotes
         $popularPosts = Post::query('active', '=', 1)
-            ->leftJoin('upvote_downvotes', 'post_id', '=', 'upvote_downvotes.post_id')
+            ->leftJoin('upvote_downvotes', 'posts.id', '=', 'upvote_downvotes.post_id')
             ->select('posts.*', DB::raw('COUNT(upvote_downvotes.id) as upvote_count'))
-            ->where(function($query) {
+            ->where(function ($query) {
                 $query->whereNull('upvote_downvotes.is_upvote')
                     ->orWhere('upvote_downvotes.is_upvote', '=', 1);
-            })->where('active', '=', 1)
+            })
+            ->where('active', '=', 1)
             ->whereDate('published_at', '<', Carbon::now())
             ->orderByDesc('upvote_count')
-            ->groupBy('posts.id')
+            ->groupBy(([
+                'posts.id',
+                'posts.title',
+                'posts.slug',
+                'posts.thumbnail',
+                'posts.body',
+                'posts.active',
+                'posts.published_at',
+                'posts.user_id',
+                'posts.created_at',
+                'posts.updated_at',
+                'posts.meta_title',
+                'posts.meta_description',
+            ]))
             ->limit(3)
             ->get();
 
@@ -46,28 +60,40 @@ class PostController extends Controller
 
         if ($user) {
             $leftJoin = "(SELECT cp.category_id, cp.post_id FROM upvote_downvotes
-                        JOIN category_post cp ON upvote_downvotes.post_id =
-                        cp.post_id WHERE upvote_downvotes.is_upvote = 1
-                                       and upvote_downvotes.user_id = ?) as t";
-
+                        JOIN category_post cp ON upvote_downvotes.post_id = cp.post_id
+                        WHERE upvote_downvotes.is_upvote = 1 and upvote_downvotes.user_id = ?) as t";
             $recommendedPosts = Post::query()
-                ->leftJoin('category_post as cp', 'post.id', '=', 'cp.post_id')
-                ->leftJoin(DB::raw($leftJoin), function($join) {
+                ->leftJoin('category_post as cp', 'posts.id', '=', 'cp.post_id')
+                ->leftJoin(DB::raw($leftJoin), function ($join) {
                     $join->on('t.category_id', '=', 'cp.category_id')
                         ->on('t.post_id', '<>', 'cp.post_id');
-                })->select('posts.*')
-                ->where('posts_id', '<>', DB::raw('t.post_id'))
+                })
+                ->select('posts.*')
+                ->where('posts.id', '<>', DB::raw('t.post_id'))
                 ->setBindings([$user->id])
                 ->limit(3)
                 ->get();
         } else {
             $recommendedPosts = Post::query()
-                ->leftJoin('post_views', 'post_id', '=', 'post_views.post_id')
+                ->leftJoin('post_views', 'posts.id', '=', 'post_views.post_id')
                 ->select('posts.*', DB::raw('COUNT(post_views.id) as view_count'))
                 ->where('active', '=', 1)
                 ->whereDate('published_at', '<', Carbon::now())
                 ->orderByDesc('view_count')
-                ->groupBy('posts.id')
+                ->groupBy([
+                    'posts.id',
+                    'posts.title',
+                    'posts.slug',
+                    'posts.thumbnail',
+                    'posts.body',
+                    'posts.active',
+                    'posts.published_at',
+                    'posts.user_id',
+                    'posts.created_at',
+                    'posts.updated_at',
+                    'posts.meta_title',
+                    'posts.meta_description',
+                ])
                 ->limit(3)
                 ->get();
         }

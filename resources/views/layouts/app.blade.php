@@ -75,9 +75,10 @@
     </div>
     <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
         <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            @foreach($categories as $category)
-            <a href="{{ route('by-category', $category) }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 {{ request('category')?->slug === $category->slug ? 'bg-slate-500 text-white' : '' }}">{{$category->title}}</a>
-            @endforeach
+
+            <a href="{{ route('about-us') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">Coding</a>
+
+            <a href="{{ route('about-us') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">Productivity</a>
 
             <a href="{{ route('about-us') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">About Us</a>
 

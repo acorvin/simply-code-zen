@@ -11,7 +11,6 @@
                 </div>
             </div>
 
-
             <!-- Search Posts -->
             <div>
                 <form class="mb-6" method="get" action="{{route('search')}}">

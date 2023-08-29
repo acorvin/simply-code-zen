@@ -195,8 +195,10 @@ class PostController extends Controller
             ->where('active', '=', true)
             ->whereDate('published_at', '<=', Carbon::now())
             ->orderBy('published_at', 'desc')
-            ->where('title', 'like', "%$q%")
-            ->paginate(10);
+            ->where(function($query) use($q) {
+                $query->where('title', 'like', "%$q%")
+                    ->orWhere('body', 'like', "%$q%");
+            })->paginate(10);
 
         return view('post.search', compact('posts'));
     }

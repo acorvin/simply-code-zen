@@ -77,21 +77,15 @@
     <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
         <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
 
-            <a href="{{ route('about-us') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">Coding</a>
+            <a href="{{ route('by-category', 'challenges') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">Challenges</a>
 
-            <a href="{{ route('about-us') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">Productivity</a>
+            <a href="{{ route('by-category', 'productivity') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">Productivity</a>
+
+            <a href="{{ route('by-category', 'resources') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">Resources</a>
 
             <a href="{{ route('about-us') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">About Us</a>
 
         </div>
-
-{{--        <div class="flex items-center">--}}
-{{--            <form method="get" action="{{route('search')}}">--}}
-{{--                <input name="q" value="{{request()->get('q')}}"--}}
-{{--                       class="block w-full rounded-md border-0 px-3.5 py-2 t0ext-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 font-medium"--}}
-{{--                       placeholder="Search"/>--}}
-{{--            </form>--}}
-{{--        </div>--}}
     </div>
 </nav>
 
@@ -123,12 +117,15 @@
     </div>
     <div class="w-full container mx-auto flex flex-col items-center">
         <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-            <a href="#" class="uppercase px-3">About Us</a>
-            <a href="#" class="uppercase px-3">Privacy Policy</a>
-            <a href="#" class="uppercase px-3">Terms & Conditions</a>
-            <a href="#" class="uppercase px-3">Contact Us</a>
+            <a href="{{ route('by-category', 'challenges') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">Challenges</a>
+
+            <a href="{{ route('by-category', 'productivity') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">Productivity</a>
+
+            <a href="{{ route('by-category', 'resources') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">Resources</a>
+
+            <a href="{{ route('about-us') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">About Us</a>
         </div>
-        <div class="uppercase pb-6">&copy; simplycodezen.com</div>
+        <div class="uppercase pb-6">&copy; simplycodezen</div>
     </div>
 </footer>
 

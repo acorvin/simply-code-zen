@@ -18,8 +18,9 @@ class Comments extends Component
     public function render()
     {
 
-        $comments = Comment::where('post_id', '=', $this->post->id)->get();
-
+        $comments = Comment::where('post_id', '=', $this->post->id)
+            ->orderByDesc('created_at')
+            ->get();
 
         return view('livewire.comments', compact('comments'));
     }

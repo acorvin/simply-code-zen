@@ -10,7 +10,7 @@
 
         <div>
             <div>
-                <a class="text-lime-600 font-semibold" href="#">Sally</a>
+                <a class="text-yellow-600 font-semibold" href="#">Sally</a>
                 - <span class="text-gray-400">{{ $comment->created_at->diffForHumans() }}</span>
             </div>
 
@@ -19,9 +19,9 @@
             </div>
 
             <div class="flex gap-3">
-                <a class="text-lime-600 text-sm" href="#">Reply</a>
+                <a class="text-yellow-600 text-sm" href="#">Reply</a>
                 @if (\Illuminate\Support\Facades\Auth::id() == $comment->user_id)
-                <a class="text-green-700 text-sm" href="#">Edit</a>
+                <a class="text-yellow-700 text-sm" href="#">Edit</a>
                 <a class="text-red-700 text-sm" href="#">Delete</a>
                 @endif
             </div>

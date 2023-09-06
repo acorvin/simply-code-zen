@@ -1,5 +1,5 @@
 <div>
-    <form x-data="{
+    <form class="mb-6" x-data="{
         focused: false
     }">
         <div class="mb-4">

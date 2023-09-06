@@ -72,6 +72,8 @@
                     </div>
                 </div>
             </div>
+
+            <livewire:comments :post="$post"/>
         </section>
 
     <x-sidebar />

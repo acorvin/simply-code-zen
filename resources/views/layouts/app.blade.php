@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $metaTitle ?: 'Simply Code Zen' }}</title>
+    <title>{{ $metaTitle ?: 'Code Zen' }}</title>
     <meta name="description" content="{{ $metaDescription }}">
 
     <!-- Font Awesome -->

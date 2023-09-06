@@ -26,8 +26,9 @@ class CommentCreate extends Component
     public function createComment()
     {
         $user = auth()->user();
+
         if(!$user) {
-            return redirect()->route('login');
+            return redirect('login');
         }
         Comment::create([
             'comment' => $this->comment,

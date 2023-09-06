@@ -24,7 +24,7 @@
             <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                 @auth
                 <li><a href="/profile" class="hover:text-gray-200 hover:underline px-4">Profile</a></li>
-                <li><a href="#" class="hover:text-gray-200 hover:underline px-4">Logout</a></li>
+                <li><a href="#" class="hover:text-gray-200 hover:underline px-4" type="submit">Logout</a></li>
                 @else
                 <li><a href="{{ route('register') }}" class="hover:text-gray-200 hover:underline px-4">Sign Up!</a></li>
                 <li><a href="{{ route('login') }}" class="hover:text-gray-200 hover:underline px-4">Login</a></li>

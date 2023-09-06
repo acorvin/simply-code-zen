@@ -27,14 +27,12 @@ class CommentCreate extends Component
     {
         $user = auth()->user();
         if(!$user) {
-            return $this->redirect('/login');
+            return redirect()->route('login');
         }
-        $comment = Comment::create([
+        Comment::create([
             'comment' => $this->comment,
             'post_id' => $this->post->id,
             'user_id' => $user->id
         ]);
-
-        dd('$comment');
     }
 }

@@ -61,8 +61,8 @@
                     </div>
                 @else
                     <a href="{{route('login')}}"
-                       class="hover:bg-slate-800 hover:text-white rounded py-2 px-4 mx-2">Login</a>
-                    <a href="{{route('register')}}" class="bg-slate-800 text-white rounded py-2 px-4 mx-2">Sign up!</a>
+                       class="border-2 border-transparent hover:border-lime-600 hover:text-white rounded py-2 px-4 mx-2">Login</a>
+                    <a href="{{route('register')}}" class="bg-lime-600 border-2 border-transparent hover:bg-transparent hover:border-lime-600 text-white rounded py-2 px-4 mx-2">Sign up!</a>
                 @endauth
             </ul>
         </nav>

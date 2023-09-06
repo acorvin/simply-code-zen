@@ -1,3 +1,3 @@
 <div>
-    Hellloooooo! I am a comment.
+    {{ $comment->comment }}
 </div>

@@ -10,7 +10,7 @@
 
         <div>
             <div>
-                <a class="text-yellow-600 font-semibold" href="#">Sally</a>
+                <a class="text-yellow-600 font-semibold" href="#">{{ $comment->user->name  }}</a>
                 - <span class="text-gray-400">{{ $comment->created_at->diffForHumans() }}</span>
             </div>
 

@@ -10,18 +10,31 @@ class Comments extends Component
 {
     public Post $post;
 
+    public $comments;
+
+    protected $eventListeners = [
+        'commentCreated' => 'commentCreated'
+    ];
+
     public function mount(Post $post)
     {
         $this->post = $post;
+
+        $this->comments = Comment::where('post_id', '=', $this->post->id)
+            ->orderByDesc('created_at')
+            ->get();
     }
 
     public function render()
     {
 
-        $comments = Comment::where('post_id', '=', $this->post->id)
-            ->orderByDesc('created_at')
-            ->get();
+        return view('livewire.comments');
+    }
 
-        return view('livewire.comments', compact('comments'));
+    public function commentCreated(int $id)
+    {
+        $comment = Comment::where('id', '=', $id)->first();
+
+        $this->comments = $this->comments->prepend($comment);
     }
 }

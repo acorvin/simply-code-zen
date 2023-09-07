@@ -30,10 +30,13 @@ class CommentCreate extends Component
         if(!$user) {
             return redirect('login');
         }
-        Comment::create([
+        $comment = Comment::create([
             'comment' => $this->comment,
             'post_id' => $this->post->id,
             'user_id' => $user->id
         ]);
+
+        $this->emitUp('commentCreated', $comment->id);
+        $this->comment = '';
     }
 }

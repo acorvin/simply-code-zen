@@ -12,7 +12,8 @@ class CommentItem extends Component
     public bool $editing = false;
 
     protected $listeners = [
-        'cancelEditing' => 'cancelEditing'
+        'cancelEditing' => 'cancelEditing',
+        'cancelUpdated' => 'cancelUpdated'
     ];
 
     public function mount(Comment $comment)
@@ -32,7 +33,7 @@ class CommentItem extends Component
         }
 
         if ($this->comment->user_id != $user->id) {
-            return response('You are not allowed to perform this action', 403);
+            return response('Action unauthorized', 403);
         }
 
         $id = $this->comment->id;
@@ -47,6 +48,11 @@ class CommentItem extends Component
     }
 
     public function cancelEditing()
+    {
+        $this->editing = false;
+    }
+
+    public function cancelUpdated()
     {
         $this->editing = false;
     }

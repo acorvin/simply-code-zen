@@ -18,7 +18,7 @@
         <div :class="isEdit || focused ? '' : 'hidden'">
             <button wire:click="createComment" type="submit" class="bg-slate-800 text-white font-bold text-sm uppercase rounded hover:bg-slate-700 px-4 py-3">Add Comment</button>
 
-            <button @click="focused = false" type="button" class="bg-white text-dark font-bold text-sm uppercase rounded hover:bg-slate-700 hover:text-white px-4 py-3">Cancel</button>
+            <button @click="focused = false; isEdit = false; $wire.emitUp('cancelEditing')" type="button" class="bg-white text-dark font-bold text-sm uppercase rounded hover:bg-slate-700 hover:text-white px-4 py-3">Cancel</button>
         </div>
     </form>
 </div>

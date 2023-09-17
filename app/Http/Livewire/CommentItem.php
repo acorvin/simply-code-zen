@@ -11,6 +11,9 @@ class CommentItem extends Component
 
     public bool $editing = false;
 
+    protected $listeners = [
+        'cancelEditing' => 'cancelEditing'
+    ];
 
     public function mount(Comment $comment)
     {
@@ -41,5 +44,10 @@ class CommentItem extends Component
     public function startCommentEdit()
     {
         $this->editing = true;
+    }
+
+    public function cancelEditing()
+    {
+        $this->editing = false;
     }
 }

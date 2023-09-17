@@ -25,8 +25,8 @@
             <div class="flex gap-3">
                 <a class="text-yellow-600 text-sm" href="#">Reply</a>
                 @if (\Illuminate\Support\Facades\Auth::id() == $comment->user_id)
-                <a wire:click.prevent="startCommentEdit" class="text-yellow-700 text-sm" href="#">Edit</a>
-                <a wire:click.prevent="deleteComment" class="text-red-700 text-sm" href="#">Delete</a>
+                <a wire:click.prevent="startCommentEdit" class="text-yellow-700 text-sm" href="">Edit</a>
+                <a wire:click.prevent="deleteComment" class="text-red-700 text-sm" href=" ">Delete</a>
                 @endif
             </div>
 

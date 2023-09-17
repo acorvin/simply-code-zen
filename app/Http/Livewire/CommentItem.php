@@ -15,7 +15,7 @@ class CommentItem extends Component
 
     protected $listeners = [
         'cancelEditing' => 'cancelEditing',
-        'commentUpdated' => 'cancelUpdated',
+        'commentUpdated' => 'commentUpdated',
         'commentCreated' => 'commentCreated'
     ];
 
@@ -53,6 +53,7 @@ class CommentItem extends Component
     public function cancelEditing()
     {
         $this->editing = false;
+        $this->replying = false;
     }
 
     public function cancelUpdated()

@@ -10,7 +10,7 @@ class Comments extends Component
 {
     public Post $post;
 
-    protected $eventListeners = [
+    protected $listeners = [
         'commentCreated' => '$refresh',
         'commentDeleted' => '$refresh',
     ];
@@ -26,7 +26,11 @@ class Comments extends Component
         return view('livewire.comments', compact('comments'));
     }
 
-    private function selectComments()
+    /**
+     * @return mixed
+     *
+     */
+    private function selectComments(): mixed
     {
         return Comment::where('post_id', '=', $this->post->id)
             ->with(['post', 'user', 'comments'])

@@ -12,7 +12,7 @@
         }
     }">
         <div class="mb-4">
-            <textarea x-ref="input" wire:model="comment" @click="focused = true" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-lime-800 focus:ring-0" :rows="isEdit || focused ? '4' : '1' " placeholder="Leave a comment"></textarea>
+            <textarea x-ref="input" wire:model="comment" @click="focused=true" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-lime-800 focus:ring-0" :rows="isEdit || focused ? '4' : '1' " placeholder="Leave a comment"></textarea>
         </div>
 
         <div :class="isEdit || focused ? '' : 'hidden'">

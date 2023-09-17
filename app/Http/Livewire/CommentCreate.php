@@ -12,9 +12,7 @@ class CommentCreate extends Component
     public string $comment = '';
 
     public Post $post;
-
     public ?Comment $commentModal = null;
-
     public ?Comment $parentComment = null;
 
     public function mount(Post $post, $commentModal = null, $parentComment = null)
@@ -48,7 +46,6 @@ class CommentCreate extends Component
             $this->comment = '';
             $this->emitUp('commentUpdated');
         }else {
-
             $comment = Comment::create([
                 'comment' => $this->comment,
                 'post_id' => $this->post->id,

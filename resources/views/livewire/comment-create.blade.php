@@ -1,10 +1,10 @@
 <div>
     <form class="mb-6" x-data="{
-        focused: false,
+        focused: {{ $parentComment ? 'true' : 'false' }},
             isEdit: {{ $commentModal ? 'true' : 'false' }}
             init() {
-            if (this.isEdit)
-                this.$refs.input.focus()
+            if (this.isEdit or this.focused)
+                this.$refs.input.focus();
 
             $wire.on('commentCreated', ()=>{
             this.focused = false;

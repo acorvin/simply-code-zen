@@ -15,11 +15,14 @@ class CommentCreate extends Component
 
     public ?Comment $commentModal = null;
 
-    public function mount(Post $post, $commentModal = null)
+    public ?Comment $parentComment = null;
+
+    public function mount(Post $post, $commentModal = null, $parentComment = null)
     {
         $this->post = $post;
         $this->commentModal = $commentModal;
         $this->comment = $commentModal ? $commentModal->comment : '';
+        $this->parentComment = $parentComment;
     }
 
     public function render()
@@ -49,7 +52,8 @@ class CommentCreate extends Component
             $comment = Comment::create([
                 'comment' => $this->comment,
                 'post_id' => $this->post->id,
-                'user_id' => $user->id
+                'user_id' => $user->id,
+                'parent_id' => $this->parentComment?->id
             ]);
 
             $this->emitUp('commentCreated', $comment->id);

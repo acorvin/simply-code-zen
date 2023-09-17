@@ -15,7 +15,8 @@ class CommentItem extends Component
 
     protected $listeners = [
         'cancelEditing' => 'cancelEditing',
-        'cancelUpdated' => 'cancelUpdated'
+        'commentUpdated' => 'cancelUpdated',
+        'commentCreated' => 'commentCreated'
     ];
 
     public function mount(Comment $comment)
@@ -61,6 +62,11 @@ class CommentItem extends Component
 
     public function startReply()
     {
-        $this->replying= true;
+        $this->replying = true;
+    }
+
+    public function commentCreated()
+    {
+        $this->replying = false;
     }
 }

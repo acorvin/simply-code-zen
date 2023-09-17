@@ -11,6 +11,8 @@ class CommentItem extends Component
 
     public bool $editing = false;
 
+    public bool $replying = false;
+
     protected $listeners = [
         'cancelEditing' => 'cancelEditing',
         'cancelUpdated' => 'cancelUpdated'
@@ -55,5 +57,10 @@ class CommentItem extends Component
     public function cancelUpdated()
     {
         $this->editing = false;
+    }
+
+    public function startReply()
+    {
+        $this->replying= true;
     }
 }

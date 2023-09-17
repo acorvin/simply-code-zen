@@ -8,6 +8,10 @@ use Livewire\Component;
 class CommentItem extends Component
 {
     public Comment $comment;
+
+    public bool $editing = false;
+
+
     public function mount(Comment $comment)
     {
         $this->comment = $comment;
@@ -32,5 +36,10 @@ class CommentItem extends Component
 
         $this->comment->delete();
         $this->emitUp('commentDeleted', $id);
+    }
+
+    public function startCommentEdit()
+    {
+        $this->editing = true;
     }
 }

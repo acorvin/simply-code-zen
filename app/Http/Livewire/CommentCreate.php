@@ -13,9 +13,13 @@ class CommentCreate extends Component
 
     public Post $post;
 
-    public function mount(Post $post)
+    public ?Comment $commentModal = null;
+
+    public function mount(Post $post, $commentModal = null)
     {
         $this->post = $post;
+        $this->commentModal = $commentModal;
+        $this->comment = $commentModal ? $commentModal->comment : '';
     }
 
     public function render()

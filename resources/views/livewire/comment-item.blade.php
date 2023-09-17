@@ -38,7 +38,7 @@
             @if($comment->comments->count())
                 <div class="mt-4">
                     @foreach($comment->comments as $childComment)
-                        <livewire:comment-item :comment="$childComment" wire:key="comment-{{ $childComment->id }}" />
+                        <livewire:comment-item :comment="$childComment" wire:key="comment-{{ $childComment->id }}-{{ $comment->comments->count() }}" />
                     @endforeach
                 </div>
             @endif

@@ -10,39 +10,20 @@ class Comments extends Component
 {
     public Post $post;
 
-    public $comments;
-
     protected $eventListeners = [
-        'commentCreated' => 'commentCreated',
-        'commentDeleted' => 'commentDeleted'
+        'commentCreated' => '$refresh',
+        'commentDeleted' => '$refresh',
     ];
 
     public function mount(Post $post)
     {
         $this->post = $post;
-
-        $this->comments = $this->selectComments();
     }
 
     public function render()
     {
-
-        return view('livewire.comments');
-    }
-
-    public function commentCreated(int $id)
-    {
-        $comment = Comment::where('id', '=', $id)->first();
-        if (!$comment->parent_id){
-            $this->comments = $this->comments->prepend($comment);
-        }
-    }
-
-    public function commentDeleted(int $id)
-    {
-        $this->comments = $this->comments->reject(function ($comment) use ($id) {
-            return $comment->id == $id;
-        });
+        $comments = $this->selectComments();
+        return view('livewire.comments', compact('comments'));
     }
 
     private function selectComments()

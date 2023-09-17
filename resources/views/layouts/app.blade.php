@@ -160,7 +160,7 @@
 
             <a href="{{ route('about-us') }}" class="hover:bg-gray-400 hover:text-white rounded py-2 px-4 mx-2 ">About Us</a>
         </div>
-        <div class="uppercase pb-6">&copy; simplycodezen</div>
+        <div class="uppercase pb-6">&copy; codezen</div>
     </div>
 </footer>
 

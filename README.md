@@ -1,4 +1,4 @@
-## Code Zen (in progress...)
+## Code Zen Blog
 
 Code Zen is a blog project designed using Laravel and Filament. Its purpose is to provide a platform for sharing and exploring coding concepts, programming tips, and technology insights in a calm and simplified manner. Whether you're a seasoned developer or just starting your coding journey, Code Zen seeks to offer a serene space for learning and growth.
 

@@ -26,7 +26,7 @@ Code Zen is a blog project designed using Laravel and Filament. Its purpose is t
 ```
 git clone https://github.com/acorvin/simply-code-zen.git
 ```
-2. Have **[Docker](https://docker.com/)** installed to run the dev environment 
+2. I recommend using **[Docker](https://docker.com/)** to run the dev environment 
 
 3. Run the composer installation by cd'ing into project folder in the terminal and running
 ```
@@ -69,4 +69,10 @@ npm install
 10. Run dev / vite
 ```
 npm run dev
+```
+## Accessing Dashboard
+
+To access the Filament admin dashboard, navigate to 
+```
+localhost/admin
 ```
